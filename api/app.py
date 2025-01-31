@@ -1,12 +1,11 @@
 from fastapi import FastAPI, File, UploadFile
 import tensorflow as tf
-print(tf.__version__)
 import numpy as np
 from PIL import Image
 import io
 
 # Chargement du modèle entraîné
-model = tf.keras.models.load_model("./model/modele_maladies_plantes.h5")
+model = tf.keras.models.load_model("../model/modele_maladies_plantes.h5")
 
 # Initialise l'API FastAPI
 app = FastAPI()
