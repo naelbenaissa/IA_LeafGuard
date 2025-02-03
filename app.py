@@ -5,7 +5,7 @@ from PIL import Image
 import io
 
 # Chargement du modèle
-model = tf.keras.models.load_model("../model/modele_maladies_plantes.h5")
+model = tf.keras.models.load_model("model/modele_maladies_plantes.h5")
 
 classification_types = [
     'Poivron - Dépérissement bactérien', 'Poivron - Sain',
