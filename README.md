@@ -33,7 +33,7 @@ IA LeafGuard is an AI-powered plant disease recognition API based on a deep lear
 
 3. **Run the API**
    ```bash
-   uvicorn app:app --host 0.0.0.0 --port 8000
+   uvicorn app:app --host 0.0.0.0 --port 8080
    ```
 
 ## Deployment with Docker
@@ -45,7 +45,7 @@ IA LeafGuard is an AI-powered plant disease recognition API based on a deep lear
 
 2. **Run the container**
    ```bash
-   docker run -p 8000:8000 ia_leafguard
+   docker run -p 8080:8080 ia_leafguard
    ```
 
 ## API Usage
@@ -59,7 +59,7 @@ The API provides an endpoint to send an image for analysis:
 
 ```bash
 curl -X 'POST' \
-  'http://127.0.0.1:8000/predict/' \
+  'http://127.0.0.1:8080/predict/' \
   -H 'accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
   -F 'file=@path_to_image.jpg'
