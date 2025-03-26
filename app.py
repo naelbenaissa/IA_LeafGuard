@@ -3,6 +3,7 @@ from fastapi import FastAPI, File, UploadFile
 import tensorflow as tf
 from PIL import Image
 import io
+from fastapi.middleware.cors import CORSMiddleware
 
 # Chargement du modèle
 model = tf.keras.models.load_model("model/modele_maladies_plantes.h5")
@@ -19,6 +20,15 @@ classification_types = [
 
 # Initialise l'API FastAPI
 app = FastAPI()
+
+# Ajout de CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Fonction de prédiction
 def predict(image_bytes):

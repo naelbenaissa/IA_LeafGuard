@@ -11,8 +11,10 @@ COPY . /app/
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Exposer le port 8000
-EXPOSE 8000
+# Exposer le port 8080
+EXPOSE 8080
 
 # Commande pour démarrer FastAPI avec Uvicorn
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+ENV PORT=8080
+# CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT}"]
